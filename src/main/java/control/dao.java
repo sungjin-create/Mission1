@@ -36,13 +36,13 @@ public class dao {
     //북마크 그룹 추가
     public static void bookmarkGroupAdd(String groupName, int groupOrder) {
         String sql = "insert into BOOKMARKGROUP(group_name, GROUP_ORDER, reg_day, change_day)\n" +
-                "values('" + groupName + "', '" + groupOrder + "',datetime('now', 'localtime'), '') ;";
+                "values('" + groupName + "', '" + groupOrder + "',strftime('%Y-%m-%dT%H:%M:%S', datetime('now', 'localtime')), '') ;";
         DbService.bookmarkGroupAdd(sql);
     }
 
     public static void bookmarkGroupListAdd(String bookmarkName, String wifiName) {
         String sql = "insert into BOOKMARKLIST(BM_NAME, WIFI_NAME, LIST_REG_DAY, GROUP_ID)\n" +
-                "VALUES ('"+bookmarkName+"', '"+wifiName+"', datetime('now', 'localtime'), '"+bookmarkName+"')";
+                "VALUES ('"+bookmarkName+"', '"+wifiName+"', strftime('%Y-%m-%dT%H:%M:%S', datetime('now', 'localtime')), '"+bookmarkName+"')";
         DbService.insert(sql);
     }
 
@@ -63,7 +63,7 @@ public class dao {
 
     public static void bookmarkEdit(String groupName, String preGroupName, int groupOrder, int preGroupOrder) {
         String sql = "update BOOKMARKGROUP\n" +
-                "set GROUP_NAME = '" + groupName + "', GROUP_ORDER=" + groupOrder + ", CHANGE_DAY = datetime('now', 'localtime')\n" +
+                "set GROUP_NAME = '" + groupName + "', GROUP_ORDER=" + groupOrder + ", CHANGE_DAY = strftime('%Y-%m-%dT%H:%M:%S', datetime('now', 'localtime'))\n" +
                 "where GROUP_NAME = '" + preGroupName + "' and GROUP_ORDER="+preGroupOrder;
         DbService.dbUpdate(sql);
 

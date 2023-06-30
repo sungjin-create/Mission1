@@ -19,11 +19,9 @@ public class WifiInformationServlet extends HttpServlet {
         //거리 저장
         control.dao.historyInsert(latitude, longitude); //히스토리 db에 저장
         //히스토리작성
-        latitude = 1;
         db.latitude = latitude;
         db.longitude = longitude;
 
-        System.out.println("hello");
         response.sendRedirect("jsp/wifiInformation.jsp");
     }
 
