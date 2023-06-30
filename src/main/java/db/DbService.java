@@ -608,9 +608,8 @@ public class DbService {
 
             String sql = "insert into history(LAT, LNT, NOWDATE)\n" +
                     "VALUES (?, ?, strftime('%Y-%m-%dT%H:%M:%S', datetime('now', 'localtime')))";
-            System.out.println("hello");
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDouble(1, 123);
+            preparedStatement.setDouble(1, x);
             preparedStatement.setDouble(2, y);
 
             int affected = preparedStatement.executeUpdate();
