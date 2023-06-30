@@ -17,7 +17,7 @@ public class WifiInformationServlet extends HttpServlet {
         double latitude = Double.parseDouble(request.getParameter("lat"));
         double longitude = Double.parseDouble(request.getParameter("lnt"));
         //거리 저장
-        control.dao.distanceInsert(latitude, longitude); //히스토리 db에 저장
+        control.dao.historyInsert(latitude, longitude); //히스토리 db에 저장
         //히스토리작성
         db.latitude = latitude;
         db.longitude = longitude;

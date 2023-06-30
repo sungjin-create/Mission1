@@ -118,7 +118,6 @@ public class DbService {
                     double LAT = Double.parseDouble((String) object.get("LAT"));
                     double LNT = Double.parseDouble((String) object.get("LNT"));
                     String WORK_DTTM = (String) object.get("WORK_DTTM");
-
                     pstmt.setDouble(1, 0.0);
                     pstmt.setString(2, X_SWIFI_MGR_NO);
                     pstmt.setString(3, X_SWIFI_WRDOFC);
@@ -472,6 +471,7 @@ public class DbService {
                 double LAT = rs.getDouble("LAT");
                 double LNT = rs.getDouble("LNT");
                 String date = rs.getString("NowDate");
+                System.out.println(date);
 
                 HistoryMember historyMember = new HistoryMember();
                 historyMember.setID(ID);
@@ -606,11 +606,11 @@ public class DbService {
             Class.forName(db.classForName);
             connection = DriverManager.getConnection(db.url);
 
-            String sql = "insert into history(LAT, LNT, NowDate) VALUES(" +
-                    "?, ?, datetime('now','localtime'))";
+            String sql = "insert into history(LAT, LNT, NOWDATE)\n" +
+                    "VALUES (?, ?, strftime('%Y-%m-%dT%H:%M:%S', datetime('now', 'localtime')))";
 
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDouble(1, x);
+            preparedStatement.setDouble(1, 123);
             preparedStatement.setDouble(2, y);
 
             int affected = preparedStatement.executeUpdate();

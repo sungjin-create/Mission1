@@ -154,7 +154,7 @@ public class dao {
     }
 
     //거리에 비례하여 저장
-    public static void distanceInsert(double x, double y) {
+    public static void historyInsert(double x, double y) {
         DbService.dbHistory(x, y); //히스토리에도 저장
     }
 
