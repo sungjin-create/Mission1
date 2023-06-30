@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: small;
+    border: 2px;
+    padding:10px;
+}
+
+th {
+    background-color: #02ab70;
+    border: 1px solid aliceblue;
+    color: white;
+    padding:4px;
+}
+td {
+    border: 1px solid grey;
+    height: 30px;
+    padding:4px;
+}
+tbody tr:nth-child(2n) {
+    background-color: lightgray;
+}
+tr:nth-child(2n) {
+    background-color: lightgray;
+}
+
+form{
+    display: inline;
+}
