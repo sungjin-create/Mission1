@@ -471,7 +471,6 @@ public class DbService {
                 double LAT = rs.getDouble("LAT");
                 double LNT = rs.getDouble("LNT");
                 String date = rs.getString("NowDate");
-                System.out.println(date);
 
                 HistoryMember historyMember = new HistoryMember();
                 historyMember.setID(ID);
